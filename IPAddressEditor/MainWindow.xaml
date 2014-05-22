@@ -1,0 +1,21 @@
+﻿<Window x:Class="IPAddressEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cntrl="clr-namespace:IPAddressCntrl;assembly=IPAddressCntrl"
+        Title="IPAddress Editor Test" Height="350" Width="525" FocusManager.FocusedElement="{Binding ElementName=ipaddr1}">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="IPAddress:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <cntrl:IPAddressControl Grid.Column="1" IPAddress="{Binding IPAddress,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10" Name="ipaddr1" />
+        <TextBlock Text="Subnet Mask:" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <cntrl:IPAddressControl Grid.Column="1" Grid.Row="1" IPAddress="{Binding SubnetMask,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10" Name="ipaddr2"/>
+    </Grid>
+</Window>
